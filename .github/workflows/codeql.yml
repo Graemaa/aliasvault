@@ -43,17 +43,15 @@ jobs:
       fail-fast: false
       matrix:
         include:
-        - language: c-cpp
-          build-mode: none
         - language: csharp
           build-mode: none
+        # The Kotlin sources live in the Android app (apps/mobile-app/android)
+        # which cannot be built by the CodeQL autobuilder, so use buildless mode.
         - language: java-kotlin
-          build-mode: autobuild
+          build-mode: none
         - language: javascript-typescript
           build-mode: none
         - language: python
-          build-mode: none
-        - language: ruby
           build-mode: none
         - language: rust
           build-mode: none
